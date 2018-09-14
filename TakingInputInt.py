@@ -6,7 +6,7 @@ r = int(r)
 h = input("What is the height: ")
 h = int(h) 
 
-#Casting is the process of changint type
+#Casting is the process of changing type
 #Strings - Collections of characters
 #int- Integers
 #float - real numbers
