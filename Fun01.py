@@ -9,3 +9,6 @@ while (True):
 	
 	if statement == 'stop':
 		break
+
+
+print("End Program, have a nice day.")
