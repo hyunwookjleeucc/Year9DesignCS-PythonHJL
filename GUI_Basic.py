@@ -7,12 +7,12 @@ def calculate():
 	r = float(entr.get())
 	h = float(enth.get())
 
-	v = math.pi*r*r*h
-	v = round(v,3)
+	v = math.pi*r*r*h/3
+	v = round(v,2)
 
 	output.config(state="normal")
 
-	outputValue= "Given\nradius:" +str(r) + " units\nheight:" +str(h) + " units\nThe volume is:" + str(v) + " units cubed"
+	outputValue= "Given\nradius:" +str(r) + " units\nheight:" +str(h) + " units\nThe volume is " + str(v) + " units cubed."
 
 
 	output.delete(1.0, tk.END)
@@ -21,7 +21,7 @@ def calculate():
 
 
 root = tk.Tk()
-root.title("Volume of a cylinder")
+root.title("Volume of a Circular Cone")
 
 
 labr = tk.Label(root, text="radius")
@@ -36,6 +36,7 @@ labh.pack()
 enth = tk.Entry(root)
 enth.pack()
 
+
 btn = tk.Button(root, text="Calculate", command=calculate)
 btn.pack()
 
@@ -47,7 +48,27 @@ output.pack()
 
 
 
+f = open("calculations.txt", "w")
+f.write(int(v) + "\n")
 
-
+f.close()
 
 root.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
