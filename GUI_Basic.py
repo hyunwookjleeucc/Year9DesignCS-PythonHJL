@@ -4,21 +4,31 @@ import math
 
 def calculate():
 
-	r = float(entr.get())
-	h = float(enth.get())
+	try:
+		r = float(entr.get())
+		h = float(enth.get())
 
-	v = math.pi*r*r*h/3
-	v = round(v,2)
+		v = math.pi*r*r*h/3
+		v = round(v,2)
 
-	output.config(state="normal")
+		output.config(state="normal")
 
-	outputValue= "Given\nradius:" +str(r) + " units\nheight:" +str(h) + " units\nThe volume is " + str(v) + " units cubed."
+		outputValue= "Given\nradius:" +str(r) + " units\nheight:" +str(h) + " units\nThe volume is " + str(v) + " units cubed."
 
 
-	output.delete(1.0, tk.END)
-	output.insert (tk.INSERT, outputValue)
-	output.config(state="disabled")
-
+		output.delete(1.0, tk.END)
+		output.insert (tk.INSERT, outputValue)
+		output.config(state="disabled")
+		
+		f = open("calculations.txt", "a")
+		f.write( str(v) + "\n")
+		f.close()
+	except ValueError:
+		output.config(state="normal")
+		output.delete(1.0, tk.END)
+		output.insert (tk.INSERT, "INVALID")
+		output.config(state="disabled")
+		
 
 root = tk.Tk()
 root.title("Volume of a Circular Cone")
@@ -48,10 +58,7 @@ output.pack()
 
 
 
-f = open("calculations.txt", "w")
-f.write(int(v) + "\n")
 
-f.close()
 
 root.mainloop()
 
