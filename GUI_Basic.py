@@ -35,13 +35,14 @@ root.title("Volume of a Circular Cone")
 
 
 labr = tk.Label(root, text="radius")
-labr.config(bg= "red")
+labr.config(bg= "yellow")
 labr.pack()
 
 entr = tk.Entry(root)
 entr.pack()
 
 labh = tk.Label(root, text = "height")
+labh.config(bg= "yellow")
 labh.pack()
 
 enth = tk.Entry(root)
