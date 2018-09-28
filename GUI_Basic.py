@@ -26,7 +26,7 @@ def calculate():
 	except ValueError:
 		output.config(state="normal")
 		output.delete(1.0, tk.END)
-		output.insert (tk.INSERT, "INVALID")
+		output.insert (tk.INSERT, "A-DAY")
 		output.config(state="disabled")
 		
 
@@ -35,6 +35,7 @@ root.title("Volume of a Circular Cone")
 
 
 labr = tk.Label(root, text="radius")
+labr.config(bg= "red")
 labr.pack()
 
 entr = tk.Entry(root)
