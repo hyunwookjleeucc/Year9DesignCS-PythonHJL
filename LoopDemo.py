@@ -16,6 +16,8 @@
 #If you don't know how many times a loop should run, CONDITIONAL LOOP is better.
 
 import os
+import webbrowser
+import sleep
 print("****************************")
 
 
@@ -36,6 +38,7 @@ while len(word) < 6 or word.isalpha() == False:
 
 
 print(word+" is seriously long!")
+webbroswer.open("")
 
 	#When we reach the botttom of the block we check the conditin again. If it is true, we go back to the top and runs it again.
 
