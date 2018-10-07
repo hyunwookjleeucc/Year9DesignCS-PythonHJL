@@ -26,7 +26,7 @@ def calculate():
 	except ValueError:
 		output.config(state="normal")
 		output.delete(1.0, tk.END)
-		output.insert (tk.INSERT, "A-DAY")
+		output.insert (tk.INSERT, "INVALID")
 		output.config(state="disabled")
 		
 
