@@ -47,7 +47,7 @@ def calculate():
 		output.config(state="disabled")
 		
 		f = open("swimreccordss.txt", "a")
-		f.write(str(c) + "\n")
+		f.write(str(c) + "kcal" + "\n")
 		f.close()
 	except ValueError:
 		output.config(state="normal")
@@ -73,7 +73,7 @@ def calculatep():
 		output2.config(state="disabled")
 		
 		f = open("swimreccords_pace.txt", "a")
-		f.write(str(p) + "\n")
+		f.write(str(p) + "yards per minute" + "\n")
 		f.close()
 	except ValueError:
 		output2.config(state="normal")
