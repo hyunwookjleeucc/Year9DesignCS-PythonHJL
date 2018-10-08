@@ -14,7 +14,6 @@ for i in range(-44, 137, 1):
 		print(str(i)+" is even")
 	else:
 		print(str(i)+"is odd")
-		web.open("https://www.youtube.com/watch?v=zEpB4aNHllA")
 		
 
 
