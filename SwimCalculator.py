@@ -148,5 +148,10 @@ output2 = tk.Text(root, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
 output2.config(state="disabled")
 output2.pack()
 
+
+
+
+
+
 root.mainloop()
 
