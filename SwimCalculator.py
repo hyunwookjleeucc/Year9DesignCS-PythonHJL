@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 import os
 import webbrowser
 
@@ -85,68 +86,86 @@ def calculatep():
 root = tk.Tk()
 root.title("Complete Swimmer Calculator")
 
+tabControl = ttk.Notebook(root)
+
+tab1 = ttk.Frame(tabControl)
+tabControl.add(tab1, text="Weight")
+tabControl.grid()
+
+tab2 = ttk.Frame(tabControl)
+tabControl.add(tab2, text="Calories")
+tabControl.grid()
+
+tab3 = ttk.Frame(tabControl)
+tabControl.add(tab3, text="Pace")
+tabControl.grid()
+
 
 #Converting lb into kg
-labwp = tk.Label(root, text="Enter weight here in lb to find out weight in kg")
-labwp.pack()
+labwp = tk.Label(tab1, text="Enter weight here in lb to find out weight in kg")
+labwp.grid(row = 0 , column = 0)
 
-entwp = tk.Entry(root)
-entwp.pack()
+entwp = tk.Entry(tab1)
+entwp.grid(row = 1, column = 0)
 
-btn1 = tk.Button(root, text="Convert", command=convert)
-btn1.pack()
+btn1 = tk.Button(tab1, text="Convert", command=convert)
+btn1.grid(row = 2, column = 0)
 
-output1 = tk.Text(root, width=35, height=4, borderwidth=3, relief=tk.GROOVE)
+output1 = tk.Text(tab1, width=35, height=4, borderwidth=3, relief=tk.GROOVE)
 output1.config(state="disabled")
-output1.pack()
+output1.grid(row = 3, column = 0, rowspan= 2)
+
+logo = tk.PhotoImage(file = "CSCLogo.png")
+logoImage = tk.Label(image = logo)
+logoImage.grid(row = 0, column = 1, rowspan = 12)
 
 #Calculating Calories Burnt
-labw = tk.Label(root, text="Enter weight in kg")
-labw.pack()
+labw = tk.Label(tab2, text="Enter weight in kg")
+labw.grid(row = 5, column = 0)
 
-entw = tk.Entry(root)
-entw.pack()
+entw = tk.Entry(tab2)
+entw.grid(row = 6, column = 0, sticky = "N")
 
-labt = tk.Label(root, text="How long did you swim today?(in minutes)")
-labt.pack()
+labt = tk.Label(tab2, text="How long did you swim today?(in minutes)")
+labt.grid(row = 7, column = 0, sticky = "N")
 
-entt = tk.Entry(root)
-entt.pack()
+entt = tk.Entry(tab2)
+entt.grid(row = 8, column = 0, sticky = "N")
 
-labi = tk.Label(root, text="How intense was the swim today? (Leisure= 6, Moderate= 8, Intense= 9, Full-Out= 11)")
-labi.pack()
+labi = tk.Label(tab2, text="How intense was the swim today? (Leisure= 6, Moderate= 8, Intense= 9, Full-Out= 11)")
+labi.grid(row =9, column = 0, sticky = "N")
 
-enti = tk.Entry(root)
-enti.pack()
+enti = tk.Entry(tab2)
+enti.grid(row = 10, column = 0, sticky = "N")
 
-btn = tk.Button(root, text="Calculate calories burnt", command=calculate)
-btn.pack()
+btn = tk.Button(tab2, text="Calculate calories burnt", command=calculate)
+btn.grid(row = 11, column = 0, sticky = "N")
 
 
-output = tk.Text(root, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
+output = tk.Text(tab2, width=50, height=15, borderwidth=3, relief=tk.GROOVE)
 output.config(state="disabled")
-output.pack()
+output.grid(row = 12, column = 0, rowspan= 2, sticky = "N")
 
 #Calculating the Pace
 
-labd = tk.Label(root, text="How many yards did you swim today? (One length of UCC pool is 20yards)")
-labd.pack()
+labd = tk.Label(tab3, text="How many yards did you swim today? (One length of UCC pool is 20yards)")
+labd.grid(row = 0, column = 1)
 
-entd = tk.Entry(root)
-entd.pack()
+entd = tk.Entry(tab3)
+entd.grid(row = 1, column = 1)
 
-labt1 = tk.Label(root, text="How long did you swim today?(in minutes)")
-labt1.pack()
+labt1 = tk.Label(tab3, text="How long did you swim today?(in minutes)")
+labt1.grid(row = 2, column = 1,)
 
-ent1 = tk.Entry(root)
-ent1.pack()
+ent1 = tk.Entry(tab3)
+ent1.grid(row = 3, column = 1, sticky = "N")
 
-btn2 = tk.Button(root, text="Calculate Pace", command=calculatep)
-btn2.pack()
+btn2 = tk.Button(tab3, text="Calculate Pace", command=calculatep)
+btn2.grid(row = 4, column = 1)
 
-output2 = tk.Text(root, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
+output2 = tk.Text(tab3, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
 output2.config(state="disabled")
-output2.pack()
+output2.grid(row = 5, column = 1)
 
 
 
