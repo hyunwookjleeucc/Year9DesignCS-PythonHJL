@@ -25,20 +25,25 @@ class WeightConversion():
 		self.root.mainloop()
 
 	def convert(self):
-		self.w1 = float(self.entwp.get())
+		try:
+			self.w1 = float(self.entwp.get())
 
-		self.wkg = self.w1/2.205
-		self.wkg = round(self.wkg,0)
+			self.wkg = self.w1/2.205
+			self.wkg = round(self.wkg,0)
 
-		self.output1.config(state="normal")
+			self.output1.config(state="normal")
 
-		outputValue1= "Your weight in kg is: " + str(self.wkg) + "kg."
+			outputValue1= "Your weight in kg is: " + str(self.wkg) + "kg."
 
 
-		self.output1.delete(1.0, tk.END)
-		self.output1.insert (tk.INSERT, outputValue1)
-		self.output1.config(state="disabled")
-
+			self.output1.delete(1.0, tk.END)
+			self.output1.insert (tk.INSERT, outputValue1)
+			self.output1.config(state="disabled")
+		except ValueError:
+			self.output1.config(state="normal")
+			self.output1.delete(1.0, tk.END)
+			self.output1.insert (tk.INSERT, "INVALID")
+			self.output1.config(state="disabled")
 
 
 mainpage = WeightConversion()

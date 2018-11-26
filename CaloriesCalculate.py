@@ -43,6 +43,7 @@ class CalculateCalories():
 		self.root.mainloop()
 
 	def calculate(self):
+	try:
 		self.w = float(self.entw.get())
 		self.t = float(self.entt.get())
 		self.i = float(self.enti.get())
@@ -57,6 +58,12 @@ class CalculateCalories():
 
 		self.output.delete(1.0, tk.END)
 		self.output.insert (tk.INSERT, outputValue)
+		self.output.config(state="disabled")
+
+	except ValueError:
+		self.output.config(state="normal")
+		self.output.delete(1.0, tk.END)
+		self.output.insert (tk.INSERT, "INVALID")
 		self.output.config(state="disabled")
 
 

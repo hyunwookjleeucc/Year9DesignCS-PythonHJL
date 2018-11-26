@@ -1,26 +1,44 @@
-#This imports the tkinter which contains all the support material t omake GUI elements and as tk
-#means that it is a short name to use.
 import tkinter as tk
 
-root = tk.Tk() #main window
-#Tk() is a special function called a CONSTRUCTOR. If a function is written with a capital letter, this indicates that it is a constructor.
+#Classes: A blueprint to make objects.
+#Object: An instance of the class.
+
+#Three Parts
+#Constructor: This is a special method only run once when we first instantiate "Make" the object.
+#Attributes: These are variables that describe the state of the object.
+#Behaviours: These are functions that can be called that deal with the object.
 
 
-labu = tk.Label(root, text= "username")
-labu.pack()
+class LoginPage():
+
+	# The first thing is always the constructor (all the code that you write now will be in the constructor)
+	# Type two underscores before typing init and two after.
+	def __init__(self):
+		print("Running Constructor")
+		#all variables are to be instance variables.
+		self.root = tk.Tk()
+		self.labu = tk.Label(self.root, text= "username")
+		self.labu.pack()
 #ordered parameters: The order we send them matters. (COMMON)
 #named parameters: JavaScript and Python specific
 
-entu = tk.Entry(root)
-entu.pack(padx = 10)
+		self.entu = tk.Entry(self.root)
+		self.entu.pack()
 
-labp = tk.Label(root, text= "password")
-labp.pack()
+		self.labp = tk.Label(self.root, text= "password")
+		self.labp.pack()
 
-entp = tk.Entry(root, show = "*")
-entp.pack()
+		self.entp = tk.Entry(self.root, show = "*")
+		self.entp.pack()
 
-btnl = tk.Button(root, text="Submit")
-btnl.pack()
+		self.btnl = tk.Button(self.root, text="Submit", command = self.clicked)
+		self.btnl.pack()
 
-root.mainloop()
+
+		self.root.mainloop()
+
+	def clicked(self):
+			print("clicked")
+
+
+mainpage = LoginPage() #Creates an instance of the class
