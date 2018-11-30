@@ -82,9 +82,12 @@ def calculatep():
 		output2.insert (tk.INSERT, "INVALID")
 		output2.config(state="disabled")
 
+#def say():
+
 
 root = tk.Tk()
 root.title("Complete Swimmer Calculator")
+root.config(bg= "#19535F")
 
 tabControl = ttk.Notebook(root)
 
@@ -103,42 +106,61 @@ tabControl.grid()
 
 #Converting lb into kg
 labwp = tk.Label(tab1, text="Enter weight here in lb to find out weight in kg")
+labwp.config(bg = "#D7C9AA")
 labwp.grid(row = 0 , column = 0)
 
 entwp = tk.Entry(tab1)
 entwp.grid(row = 1, column = 0)
 
 btn1 = tk.Button(tab1, text="Convert", command=convert)
+btn1.config(highlightbackground = "#D7C9AA")
 btn1.grid(row = 2, column = 0)
 
 output1 = tk.Text(tab1, width=35, height=4, borderwidth=3, relief=tk.GROOVE)
 output1.config(state="disabled")
 output1.grid(row = 3, column = 0, rowspan= 2)
 
-logo = tk.PhotoImage(file = "CSCLogo.png")
+logo = tk.PhotoImage(file = "LogoMakr_34UUHt.png")
 logoImage = tk.Label(image = logo)
-logoImage.grid(row = 0, column = 1, rowspan = 12)
+logoImage.config(bg = "#19535F")
+logoImage.grid(row = 0, column = 1, rowspan = 9)
+
+btnAccess = tk.Button(text="Text-to-speech")
+btnAccess.config(highlightbackground = "#D7C9AA")
+btnAccess.grid(row = 2, column = 0, sticky = "NEWS")
+
+btnAccess2 = tk.Button(text="Contrast Colours")
+btnAccess2.config(highlightbackground = "#D7C9AA")
+btnAccess2.grid(row = 3, column = 0, sticky = "NEWS")
+
+btnAccess3 = tk.Button(text="Increase Font")
+btnAccess3.config(highlightbackground = "#D7C9AA")
+btnAccess3.grid(row = 4, column = 0, sticky = "NEWS")
 
 #Calculating Calories Burnt
 labw = tk.Label(tab2, text="Enter weight in kg")
+labw.config(bg = "#D7C9AA")
 labw.grid(row = 5, column = 0)
 
 entw = tk.Entry(tab2)
 entw.grid(row = 6, column = 0, sticky = "N")
 
 labt = tk.Label(tab2, text="How long did you swim today?(in minutes)")
+labt.config(bg = "#D7C9AA")
 labt.grid(row = 7, column = 0, sticky = "N")
 
 entt = tk.Entry(tab2)
 entt.grid(row = 8, column = 0, sticky = "N")
 
-labi = tk.Label(tab2, text="How intense was the swim today? (Leisure= 6, Moderate= 8, Intense= 9, Full-Out= 11)")
+labi = tk.Label(tab2, text="How intense was the swim today?" + "\n(Leisure= 6, Moderate= 8, Intense= 9, Full-Out= 11)")
+labi.config(bg = "#D7C9AA")
 labi.grid(row =9, column = 0, sticky = "N")
 
 enti = tk.Entry(tab2)
 enti.grid(row = 10, column = 0, sticky = "N")
 
 btn = tk.Button(tab2, text="Calculate calories burnt", command=calculate)
+btn.config(highlightbackground = "#D7C9AA")
 btn.grid(row = 11, column = 0, sticky = "N")
 
 
@@ -149,18 +171,21 @@ output.grid(row = 12, column = 0, rowspan= 2, sticky = "N")
 #Calculating the Pace
 
 labd = tk.Label(tab3, text="How many yards did you swim today? (One length of UCC pool is 20yards)")
+labd.config(bg = "#D7C9AA")
 labd.grid(row = 0, column = 1)
 
 entd = tk.Entry(tab3)
 entd.grid(row = 1, column = 1)
 
 labt1 = tk.Label(tab3, text="How long did you swim today?(in minutes)")
+labt1.config(bg = "#D7C9AA")
 labt1.grid(row = 2, column = 1,)
 
 ent1 = tk.Entry(tab3)
 ent1.grid(row = 3, column = 1, sticky = "N")
 
 btn2 = tk.Button(tab3, text="Calculate Pace", command=calculatep)
+btn2.config(highlightbackground = "#D7C9AA")
 btn2.grid(row = 4, column = 1)
 
 output2 = tk.Text(tab3, width=50, height=10, borderwidth=3, relief=tk.GROOVE)
