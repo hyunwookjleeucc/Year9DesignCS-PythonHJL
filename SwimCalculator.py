@@ -1,7 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
+import subprocess
+import threading
+import webbrowser as web
 import os
-import webbrowser
 
 
 def convert():
@@ -82,6 +84,23 @@ def calculatep():
 		output2.insert (tk.INSERT, "INVALID")
 		output2.config(state="disabled")
 
+def say(text):
+	subprocess.call(['say', text])
+
+def runSpeechprep(*args):
+	t = threading.Thread(target=runSpeech)
+	t.start()
+    
+def runSpeech(*args):
+	os.say("This program will calculate the calories you burnt and your pace using accurate calculations. Enter your weight, the time you swam, the intensity of the swim, and the distance")
+	os.say("To figure out the calories you burnt and the pace you swam at. This program is made to help you keep track of your siwm throughout the season and improve and prepare for OFSAA")
+	os.say("I hope you like my program and you can give me feedback on my website, https://sites.google.com/ucc.on.ca/year9designcoding-hjlee/unit-1/developing-ideas. The link will be below.")
+
+
+def transport():
+	web.open("https://sites.google.com/ucc.on.ca/year9designcoding-hjlee/unit-1/developing-ideas")
+
+
 #def say():
 
 
@@ -125,7 +144,8 @@ logoImage = tk.Label(image = logo)
 logoImage.config(bg = "#19535F")
 logoImage.grid(row = 0, column = 1, rowspan = 9)
 
-btnAccess = tk.Button(text="Text-to-speech")
+#Accessibility Options
+btnAccess = tk.Button(text="Text-to-speech", command = runSpeech)
 btnAccess.config(highlightbackground = "#D7C9AA")
 btnAccess.grid(row = 2, column = 0, sticky = "NEWS")
 
@@ -136,6 +156,11 @@ btnAccess2.grid(row = 3, column = 0, sticky = "NEWS")
 btnAccess3 = tk.Button(text="Increase Font")
 btnAccess3.config(highlightbackground = "#D7C9AA")
 btnAccess3.grid(row = 4, column = 0, sticky = "NEWS")
+
+#Link to Website
+btnWebsite = tk.Button(text="My website", command = transport)
+btnWebsite.config(highlightbackground = "#D7C9AA")
+btnWebsite.grid(row = 5, column = 0, sticky = "NEWS")
 
 #Calculating Calories Burnt
 labw = tk.Label(tab2, text="Enter weight in kg")
