@@ -92,17 +92,15 @@ def runSpeechprep(*args):
 	t.start()
     
 def runSpeech(*args):
-	os.say("This program will calculate the calories you burnt and your pace using accurate calculations. Enter your weight, the time you swam, the intensity of the swim, and the distance")
-	os.say("To figure out the calories you burnt and the pace you swam at. This program is made to help you keep track of your siwm throughout the season and improve and prepare for OFSAA")
-	os.say("I hope you like my program and you can give me feedback on my website, https://sites.google.com/ucc.on.ca/year9designcoding-hjlee/unit-1/developing-ideas. The link will be below.")
-
+	os.system("say \"This program will calculate the calories you burnt and your pace using accurate calculations. Enter your weight, the time you swam, the intensity of the swim, and the distance\"")
+	os.system("say \"To figure out the calories you burnt and the pace you swam at. This program is made to help you keep track of your siwm throughout the season and improve and prepare for OFSAA\"")
+	os.system("say \"I hope you like my program and you can give me feedback on my website, https://sites.google.com/ucc.on.ca/year9designcoding-hjlee/unit-1/developing-ideas. The link will be below.\"")
 
 def transport():
 	web.open("https://sites.google.com/ucc.on.ca/year9designcoding-hjlee/unit-1/developing-ideas")
 
-
-#def say():
-
+def onclick(btnStop):
+	Break(runSpeech)
 
 root = tk.Tk()
 root.title("Complete Swimmer Calculator")
@@ -123,7 +121,7 @@ tabControl.add(tab3, text="Pace")
 tabControl.grid()
 
 
-#Converting lb into kg
+#***********************************************************Converting lb into kg***********************************************************
 labwp = tk.Label(tab1, text="Enter weight here in lb to find out weight in kg")
 labwp.config(bg = "#D7C9AA")
 labwp.grid(row = 0 , column = 0)
@@ -144,25 +142,29 @@ logoImage = tk.Label(image = logo)
 logoImage.config(bg = "#19535F")
 logoImage.grid(row = 0, column = 1, rowspan = 9)
 
-#Accessibility Options
-btnAccess = tk.Button(text="Text-to-speech", command = runSpeech)
+#***********************************************************Accessibility Options******************************************************************
+btnAccess = tk.Button(text="Text-to-speech", command = runSpeechprep)
 btnAccess.config(highlightbackground = "#D7C9AA")
 btnAccess.grid(row = 2, column = 0, sticky = "NEWS")
 
 btnAccess2 = tk.Button(text="Contrast Colours")
 btnAccess2.config(highlightbackground = "#D7C9AA")
-btnAccess2.grid(row = 3, column = 0, sticky = "NEWS")
+btnAccess2.grid(row = 4, column = 0, sticky = "NEWS")
 
 btnAccess3 = tk.Button(text="Increase Font")
 btnAccess3.config(highlightbackground = "#D7C9AA")
-btnAccess3.grid(row = 4, column = 0, sticky = "NEWS")
+btnAccess3.grid(row = 5, column = 0, sticky = "NEWS")
 
-#Link to Website
+btnStop = tk.Button(text="Stop Text-to-speech", command = onclick)
+btnStop.config(highlightbackground = "#D7C9AA")
+btnStop.grid(row = 3, column = 0, sticky = "NEWS")
+
+#***********************************************************Link to Website***********************************************************
 btnWebsite = tk.Button(text="My website", command = transport)
 btnWebsite.config(highlightbackground = "#D7C9AA")
-btnWebsite.grid(row = 5, column = 0, sticky = "NEWS")
+btnWebsite.grid(row = 6, column = 0, sticky = "NEWS")
 
-#Calculating Calories Burnt
+#***********************************************************Calculating Calories Burnt***********************************************************
 labw = tk.Label(tab2, text="Enter weight in kg")
 labw.config(bg = "#D7C9AA")
 labw.grid(row = 5, column = 0)
@@ -193,7 +195,7 @@ output = tk.Text(tab2, width=50, height=15, borderwidth=3, relief=tk.GROOVE)
 output.config(state="disabled")
 output.grid(row = 12, column = 0, rowspan= 2, sticky = "N")
 
-#Calculating the Pace
+#***********************************************************Calculating the Pace***********************************************************
 
 labd = tk.Label(tab3, text="How many yards did you swim today? (One length of UCC pool is 20yards)")
 labd.config(bg = "#D7C9AA")
@@ -218,9 +220,4 @@ output2.config(state="disabled")
 output2.grid(row = 5, column = 1)
 
 
-
-
-
-
 root.mainloop()
-
