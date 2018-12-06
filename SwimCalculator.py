@@ -99,8 +99,14 @@ def runSpeech(*args):
 def transport():
 	web.open("https://sites.google.com/ucc.on.ca/year9designcoding-hjlee/unit-1/developing-ideas")
 
-def onclick(btnStop):
-	Break(runSpeech)
+def stop():
+	Break(runSpeechprep)
+
+def contrast():
+	logoImage.config(bg = "#7B2D26")
+
+def larger():
+	root.config(font = (100))
 
 root = tk.Tk()
 root.title("Complete Swimmer Calculator")
@@ -145,26 +151,26 @@ logoImage.grid(row = 0, column = 1, rowspan = 9)
 #***********************************************************Accessibility Options******************************************************************
 btnAccess = tk.Button(text="Text-to-speech", command = runSpeechprep)
 btnAccess.config(highlightbackground = "#D7C9AA")
-btnAccess.grid(row = 2, column = 0, sticky = "NEWS")
+btnAccess.grid(row = 2, column = 0, sticky = "EW")
 
-btnAccess2 = tk.Button(text="Contrast Colours")
+btnAccess2 = tk.Button(text = "Contrast Colours", command = contrast)
 btnAccess2.config(highlightbackground = "#D7C9AA")
-btnAccess2.grid(row = 4, column = 0, sticky = "NEWS")
+btnAccess2.grid(row = 4, column = 0, sticky = "EW")
 
-btnAccess3 = tk.Button(text="Increase Font")
-btnAccess3.config(highlightbackground = "#D7C9AA")
-btnAccess3.grid(row = 5, column = 0, sticky = "NEWS")
+btnAccess3 = tk.Checkbutton(text="Increase Font", command = larger)
+btnAccess3.config(bg = "#D7C9AA")
+btnAccess3.grid(row = 5, column = 0, sticky = "EW")
 
-btnStop = tk.Button(text="Stop Text-to-speech", command = onclick)
+btnStop = tk.Button(text="Stop Text-to-speech", command = stop)
 btnStop.config(highlightbackground = "#D7C9AA")
-btnStop.grid(row = 3, column = 0, sticky = "NEWS")
+btnStop.grid(row = 3, column = 0, sticky = "EW")
 
-#***********************************************************Link to Website***********************************************************
+#***********************************************************Link to Website************************************************************************
 btnWebsite = tk.Button(text="My website", command = transport)
 btnWebsite.config(highlightbackground = "#D7C9AA")
 btnWebsite.grid(row = 6, column = 0, sticky = "NEWS")
 
-#***********************************************************Calculating Calories Burnt***********************************************************
+#***********************************************************Calculating Calories Burnt*************************************************************
 labw = tk.Label(tab2, text="Enter weight in kg")
 labw.config(bg = "#D7C9AA")
 labw.grid(row = 5, column = 0)
