@@ -88,29 +88,44 @@ def say(text):
 	subprocess.call(['say', text])
 
 def runSpeechprep(*args):
-	t = threading.Thread(target=runSpeech)
 	t.start()
     
 def runSpeech(*args):
+	print(t.alive)
 	os.system("say \"This program will calculate the calories you burnt and your pace using accurate calculations. Enter your weight, the time you swam, the intensity of the swim, and the distance\"")
 	os.system("say \"To figure out the calories you burnt and the pace you swam at. This program is made to help you keep track of your siwm throughout the season and improve and prepare for OFSAA\"")
-	os.system("say \"I hope you like my program and you can give me feedback on my website, https://sites.google.com/ucc.on.ca/year9designcoding-hjlee/unit-1/developing-ideas. The link will be below.\"")
+	os.system("say \"I hope you like my program and you can give me feedback on my website.\"")
+
+def pause():
+	print("test")
+	t.stop()
 
 def transport():
 	web.open("https://sites.google.com/ucc.on.ca/year9designcoding-hjlee/unit-1/developing-ideas")
 
-def stop():
-	Break(runSpeechprep)
-
 def contrast():
+	
 	logoImage.config(bg = "#7B2D26")
+	root.config(bg= "#7B2D26")
 
-def larger():
-	root.config(font = (100))
+def contrast2():
 
+	logoImage.config(bg = "#FFEE93")
+	root.config(bg = "#FFEE93")
+
+def contrast3():
+	logoImage.config(bg= "#BFACB5")
+	root.config(bg= "#BFACB5")
+
+def revert():
+	logoImage.config(bg = "#4EA699")
+	root.config(bg = "#4EA699")
+
+t = threading.Thread(target=runSpeech)
+	
 root = tk.Tk()
 root.title("Complete Swimmer Calculator")
-root.config(bg= "#19535F")
+root.config(bg= "#4EA699")
 
 tabControl = ttk.Notebook(root)
 
@@ -127,7 +142,7 @@ tabControl.add(tab3, text="Pace")
 tabControl.grid()
 
 
-#***********************************************************Converting lb into kg***********************************************************
+#********************************************************Tab 1: Converting lb into kg***********************************************************
 labwp = tk.Label(tab1, text="Enter weight here in lb to find out weight in kg")
 labwp.config(bg = "#D7C9AA")
 labwp.grid(row = 0 , column = 0)
@@ -145,32 +160,40 @@ output1.grid(row = 3, column = 0, rowspan= 2)
 
 logo = tk.PhotoImage(file = "LogoMakr_34UUHt.png")
 logoImage = tk.Label(image = logo)
-logoImage.config(bg = "#19535F")
+logoImage.config(bg = "#4EA699")
 logoImage.grid(row = 0, column = 1, rowspan = 9)
 
 #***********************************************************Accessibility Options******************************************************************
 btnAccess = tk.Button(text="Text-to-speech", command = runSpeechprep)
 btnAccess.config(highlightbackground = "#D7C9AA")
-btnAccess.grid(row = 2, column = 0, sticky = "EW")
+btnAccess.grid(row = 1, column = 0, sticky = "NSEW")
 
-btnAccess2 = tk.Button(text = "Contrast Colours", command = contrast)
-btnAccess2.config(highlightbackground = "#D7C9AA")
-btnAccess2.grid(row = 4, column = 0, sticky = "EW")
-
-btnAccess3 = tk.Checkbutton(text="Increase Font", command = larger)
-btnAccess3.config(bg = "#D7C9AA")
-btnAccess3.grid(row = 5, column = 0, sticky = "EW")
-
-btnStop = tk.Button(text="Stop Text-to-speech", command = stop)
+btnStop = tk.Button(text = "Stop Text-to-speech", command = pause)
 btnStop.config(highlightbackground = "#D7C9AA")
-btnStop.grid(row = 3, column = 0, sticky = "EW")
+btnStop.grid(row = 2, column = 0, sticky = "NEW")
+
+btnAccess2 = tk.Button(text = "Contrast Colours 1", command = contrast)
+btnAccess2.config(highlightbackground = "#D7C9AA")
+btnAccess2.grid(row = 3, column = 0, sticky = "NSEW")
+
+btnAccess3 = tk.Button(text = "Contrast Colours 2", command = contrast2)
+btnAccess3.config(highlightbackground = "#D7C9AA")
+btnAccess3.grid(row = 4, column = 0, sticky = "NSEW")
+
+btnAccess4 = tk.Button(text = "Contrast Colours 3", command = contrast3)
+btnAccess4.config(highlightbackground = "#D7C9AA")
+btnAccess4.grid(row = 5, column = 0, sticky = "NSEW")
+
+btnAccess4 = tk.Button(text = "Revert Colours", command = revert)
+btnAccess4.config(highlightbackground = "#D7C9AA")
+btnAccess4.grid(row =6, column = 0, sticky = "NEW")
 
 #***********************************************************Link to Website************************************************************************
 btnWebsite = tk.Button(text="My website", command = transport)
 btnWebsite.config(highlightbackground = "#D7C9AA")
-btnWebsite.grid(row = 6, column = 0, sticky = "NEWS")
+btnWebsite.grid(row = 6, column = 1,sticky = "NSEW")
 
-#***********************************************************Calculating Calories Burnt*************************************************************
+#*********************************************************Tab 2: Calculating Calories Burnt*************************************************************
 labw = tk.Label(tab2, text="Enter weight in kg")
 labw.config(bg = "#D7C9AA")
 labw.grid(row = 5, column = 0)
@@ -201,7 +224,7 @@ output = tk.Text(tab2, width=50, height=15, borderwidth=3, relief=tk.GROOVE)
 output.config(state="disabled")
 output.grid(row = 12, column = 0, rowspan= 2, sticky = "N")
 
-#***********************************************************Calculating the Pace***********************************************************
+#********************************************************Tab 3: Calculating the Pace***********************************************************
 
 labd = tk.Label(tab3, text="How many yards did you swim today? (One length of UCC pool is 20yards)")
 labd.config(bg = "#D7C9AA")
